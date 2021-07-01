@@ -12,7 +12,7 @@ int main()
 
 	if (!SetSuspendState(FALSE, FALSE, FALSE)) {
 		DWORD last_error = GetLastError();
-		std::cout << "standby failed with " << last_error << "\n";
+		std::cout << "standby failed with error code " << last_error << "\n";
 	}
 	return 0;
 }
