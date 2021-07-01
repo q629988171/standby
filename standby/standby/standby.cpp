@@ -1,4 +1,4 @@
-// standby.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
+// standby.cpp : å®šä¹‰æ§åˆ¶å°åº”ç”¨ç¨‹åºçš„å…¥å£ç‚¹ã€‚
 //
 
 #include "stdafx.h"
@@ -8,7 +8,12 @@
 int main()
 {
 	// The system suspended, any system wake events remain enabled.
-	SetSuspendState(FALSE, FALSE, FALSE);
+	std::cout << "the system either enters a suspend (sleep) state\n";
+
+	if (!SetSuspendState(FALSE, FALSE, FALSE)) {
+		DWORD last_error = GetLastError();
+		std::cout << "standby failed with : " << last_error << "\n";
+	}
 	return 0;
 }
 
